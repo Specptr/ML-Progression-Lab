@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 
-def plot(X, y, y_pred, cost_history, model, theta=None):
+def plot_univariate(X, y, y_pred, cost_history, model, theta=None):
     from matplotlib.gridspec import GridSpec
 
     fig = plt.figure(figsize=(12, 8))
@@ -56,7 +56,6 @@ def plot(X, y, y_pred, cost_history, model, theta=None):
     ax2.set_facecolor("black")
     ax2.tick_params(colors='white')
 
-
     # -------- 3. Cost Convergence --------
     ax3 = fig.add_subplot(gs[0, 1])
     ax3.spines['bottom'].set_color("#ffffff")
@@ -82,5 +81,39 @@ def plot(X, y, y_pred, cost_history, model, theta=None):
     ax4.set_title("Cost Contour", color='white')
     ax4.set_facecolor("black")
     ax4.tick_params(colors='white')
+
+    plt.show()
+
+def plot_multivariate(X, y, y_pred, cost_history):
+    from matplotlib.gridspec import GridSpec
+
+    fig = plt.figure(figsize=(12, 6))
+    fig.patch.set_facecolor("black")
+    gs = GridSpec(1, 2, figure=fig, wspace=0.5, hspace=0.5)
+
+    # -------- 1. Data vs Prediction (scatter) --------
+    ax1 = fig.add_subplot(gs[0, 0])
+    ax1.spines['bottom'].set_color("#ffffff")
+    ax1.spines['left'].set_color("#ffffff")
+    ax1.scatter(X[:,0], y, c="#ff0000a0", s=4, label='true')
+    ax1.scatter(X[:,0], y_pred, c="#000dffff", s=4, label='pred')
+    ax1.set_xlabel("First feature", color='white')
+    ax1.set_ylabel("Target", color='white')
+    ax1.set_title("Data vs Prediction", color='white')
+    ax1.legend()
+    ax1.set_facecolor("black")
+    ax1.tick_params(colors='white')
+
+    # -------- 2. Cost Convergence --------
+    ax2 = fig.add_subplot(gs[0, 1])
+    ax2.spines['bottom'].set_color("#ffffff")
+    ax2.spines['left'].set_color("#ffffff")
+    iterations = np.arange(len(cost_history))
+    ax2.plot(iterations, cost_history, color="#ff9900", linewidth=1.5)
+    ax2.set_xlabel("Iteration", color='white')
+    ax2.set_ylabel("Cost Function J(θ)", color='white')
+    ax2.set_title("Cost Convergence", color='white')
+    ax2.set_facecolor("black")
+    ax2.tick_params(colors='white')
 
     plt.show()
