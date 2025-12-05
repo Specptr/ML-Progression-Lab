@@ -2,7 +2,7 @@ import numpy as np
 
 class LinearRegressionGD:
     """
-    Linear Regression using Gradient Descent
+    Linear Regression using Gradient Descent from scratch
     """
 
     def __init__(self, alpha=0.01, iterations=1500):
@@ -14,7 +14,8 @@ class LinearRegressionGD:
     @staticmethod
     def add_bias(X):
         """
-        Add bias term to feature matrix: column of ones
+        Add bias term to feature matrix: column of 1s
+        Final shape: (m, n+1)
         """
         return np.c_[np.ones(len(X)), X]
 
@@ -25,7 +26,7 @@ class LinearRegressionGD:
             J(θ) = 1/(2m) * Σ(hθ(x_i) - y_i)^2
             J(θ) = 1/(2m) * Σ(Xθ - y)^2
 
-        - X: an mx2 matrix
+        - X: an mxn matrix
         - y: target vector
         - θ: parameter vector
         """
