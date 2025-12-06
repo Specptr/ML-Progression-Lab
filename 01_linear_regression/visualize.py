@@ -69,6 +69,7 @@ def plot_univariate(X, y, y_pred, cost_history, model, theta=None):
     ax3.set_facecolor("black")
     ax3.tick_params(colors='white')
 
+
     # -------- 4. Cost Contour --------
     ax4 = fig.add_subplot(gs[1, 1])
     ax4.spines['bottom'].set_color("#ffffff")
@@ -87,7 +88,7 @@ def plot_univariate(X, y, y_pred, cost_history, model, theta=None):
 def plot_multivariate(X, y, y_pred, cost_history):
     from matplotlib.gridspec import GridSpec
 
-    fig = plt.figure(figsize=(12, 6))
+    fig = plt.figure(figsize=(12, 5))
     fig.patch.set_facecolor("black")
     gs = GridSpec(1, 2, figure=fig, wspace=0.5, hspace=0.5)
 
@@ -105,15 +106,20 @@ def plot_multivariate(X, y, y_pred, cost_history):
     ax1.tick_params(colors='white')
 
     # -------- 2. Cost Convergence --------
+    iterations = np.arange(len(cost_history))
+    y = np.array(cost_history)
+
     ax2 = fig.add_subplot(gs[0, 1])
     ax2.spines['bottom'].set_color("#ffffff")
     ax2.spines['left'].set_color("#ffffff")
-    iterations = np.arange(len(cost_history))
-    ax2.plot(iterations, cost_history, color="#ff9900", linewidth=1.5)
+
+    sc = ax2.scatter(iterations, y, c=y, cmap="plasma", s=8)
+
     ax2.set_xlabel("Iteration", color='white')
     ax2.set_ylabel("Cost Function J(θ)", color='white')
     ax2.set_title("Cost Convergence", color='white')
     ax2.set_facecolor("black")
     ax2.tick_params(colors='white')
+
 
     plt.show()
