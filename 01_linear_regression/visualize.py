@@ -38,7 +38,6 @@ def plot_univariate(X, y, y_pred, cost_history, model, theta=None):
         for j in range(len(t1)):
             theta_ij = np.array([T0[j, i], T1[j, i]])
             J_vals[j, i] = model.compute_cost(X_b, y, theta_ij)
-
     ax2 = fig.add_subplot(gs[1, 0], projection='3d')
     surf = ax2.plot_surface(T0, T1, J_vals, cmap="plasma", alpha=0.85)
     ax2.set_xlabel("θ0", color="#ff0000")
@@ -68,7 +67,6 @@ def plot_univariate(X, y, y_pred, cost_history, model, theta=None):
     ax3.set_title("Cost Convergence", color='white')
     ax3.set_facecolor("black")
     ax3.tick_params(colors='white')
-
 
     # -------- 4. Cost Contour --------
     ax4 = fig.add_subplot(gs[1, 1])
@@ -108,18 +106,14 @@ def plot_multivariate(X, y, y_pred, cost_history):
     # -------- 2. Cost Convergence --------
     iterations = np.arange(len(cost_history))
     y = np.array(cost_history)
-
     ax2 = fig.add_subplot(gs[0, 1])
     ax2.spines['bottom'].set_color("#ffffff")
     ax2.spines['left'].set_color("#ffffff")
-
     sc = ax2.scatter(iterations, y, c=y, cmap="plasma", s=8)
-
     ax2.set_xlabel("Iteration", color='white')
     ax2.set_ylabel("Cost Function J(θ)", color='white')
     ax2.set_title("Cost Convergence", color='white')
     ax2.set_facecolor("black")
     ax2.tick_params(colors='white')
-
 
     plt.show()
