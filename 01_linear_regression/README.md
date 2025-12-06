@@ -3,6 +3,8 @@
 ## Result
 
 ### univariate
-![plot](plot_01_1_1205.png)
+![plot](screenshots/plot_01_1_1205.png)
 ### multivariate
-![plot](plot_01_2_1205.png)
+![plot](screenshots/plot_01_2_1205.png)
+### interactive
+![plot](screenshots/plot_01_3_1206.png)
