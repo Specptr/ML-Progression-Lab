@@ -3,4 +3,4 @@
 ## Result
 
 ### linear
-![plot](plot_02_1.png)
+![plot](screenshots/plot_02_1_1209.png)
