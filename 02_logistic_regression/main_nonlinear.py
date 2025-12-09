@@ -1,8 +1,7 @@
 import numpy as np
 from logistic_regression import gradient_descent, compute_cost
 from feature_mapping import map_feature
-from visualize import plot_decision_boundary
-
+from visualize import plot_decision_boundary, plot_cost_history
 
 def main():
     data = np.loadtxt("data/data2.txt", delimiter=",")
@@ -15,16 +14,14 @@ def main():
 
     lam = 1  # regularization
 
-    theta, cost_history = gradient_descent(
-        X, y, lam=lam, alpha=0.1, iterations=100000
-    )
+    theta, cost_history = gradient_descent(X, y, lam=lam, alpha=0.1, iterations=100000)
 
     print("Final theta:", theta[:5], " ...")
     print("Final cost:", compute_cost(theta, X, y, lam=lam))
 
     # Plot nonlinear boundary
     plot_decision_boundary(theta, X, y, nonlinear=True, map_feature=map_feature)
-
+    plot_cost_history(cost_history)
 
 if __name__ == "__main__":
     main()
