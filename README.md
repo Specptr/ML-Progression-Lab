@@ -15,3 +15,18 @@ Maintain reproducible code examples for future reference.
 构建连贯且可追溯的学习路径。  
 通过推导与实现加深理论理解。  
 保持可复现的代码示例以供未来参考。
+
+## Linear Regression
+### univariate
+![plot](01_linear_regression/screenshots/plot_01_1_1205.png)
+### multivariate
+![plot](01_linear_regression/screenshots/plot_01_2_1205.png)
+### interactive
+![plot](01_linear_regression/screenshots/plot_01_3_1206.png)
+## Logistic Regression
+### linear
+![plot](02_logistic_regression/screenshots/plot_02_1_1209.png)
+### nonlinear
+![plot](02_logistic_regression/screenshots/plot_02_2_1209.png)
+### interactive
+![plot](02_logistic_regression/screenshots/plot_02_3_1209.png)
